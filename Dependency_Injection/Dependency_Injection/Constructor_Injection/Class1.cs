@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Dependency_Injection
+namespace Dependency_Injection.Constructor_Injection
 {
-    public class Class1
+    class Class1
     {
     }
 }
