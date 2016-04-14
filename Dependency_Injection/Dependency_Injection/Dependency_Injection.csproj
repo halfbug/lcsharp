@@ -44,7 +44,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Constructor_Injection\Class1.cs" />
     <Compile Include="Constructor_Injection\FakeExtensionManager.cs" />
     <Compile Include="Constructor_Injection\IExtensionManager.cs" />
     <Compile Include="Constructor_Injection\LogAnalyzer.cs" />
