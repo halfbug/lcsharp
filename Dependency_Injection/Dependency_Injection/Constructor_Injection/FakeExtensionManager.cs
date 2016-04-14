@@ -4,6 +4,8 @@ namespace Dependency_Injection.Constructor_Injection
 {
     internal class FakeExtensionManager : IExtensionManager
     {
+ 
+        //  Simple stub code 
         public bool WillBeValid = false;
 
      /*   public bool IsValid(string fileName)
