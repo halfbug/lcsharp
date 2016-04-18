@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Sample" Class="sampleDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=SADAFSIDDIQUI\SQLEXPRESS;Initial Catalog=Sample;Persist Security Info=True;User ID=alladmin" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="SampleConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Employee" Member="Employees">
+    <Type Name="Employee">
+      <Column Name="EmployeeID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="Gender" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Discriminator" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" IsDiscriminator="true" />
+      <Type Name="PermanentEmployee" InheritanceCode="Permanent" IsInheritanceDefault="true">
+        <Column Name="[Annual Salary]" Member="Annual_Salary" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      </Type>
+      <Type Name="ContractEmployee" InheritanceCode="Contract">
+        <Column Name="HourlyPay" Type="System.Int32" DbType="Int" CanBeNull="true" />
+        <Column Name="HoursWorked" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      </Type>
+      <Type Name="Inheritance_default">
+        <Column Member="Property1" Type="System.String" CanBeNull="false" />
+      </Type>
+    </Type>
+  </Table>
+</Database>
