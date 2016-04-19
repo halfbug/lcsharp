@@ -30,7 +30,7 @@ public partial class singleTableInheritance : System.Web.UI.Page
                 break;
 
             default:
-                GridView1.DataSource = dbContext.Employees.ToList();
+                GridView1.DataSource = ConvertEmployeeForDisplay(dbContext.Employees.ToList());
                 GridView1.DataBind();
                 break;
                 
@@ -46,7 +46,27 @@ public partial class singleTableInheritance : System.Web.UI.Page
         dt.Columns.Add("Anuual Salary");
         dt.Columns.Add("Hourly Worked");
         dt.Columns.Add("Hourly Pay");
+        dt.Columns.Add("Type");
 
+        foreach (var emp in employees)
+        {
+            DataRow dr = dt.NewRow();
+            dr["ID"] = emp.EmployeeID;
+            dr["Name"] = emp.Name;
+            dr["Gender"] = emp.Gender;
+            if (emp is PermanentEmployee)
+            {
+                dr["Anuual Salary"] = ((PermanentEmployee) emp).Annual_Salary;
+                dr["Type"] = "Permanent";
+            }
+            else
+            {
+                dr["Hourly Worked"] = ((ContractEmployee) emp).HoursWorked;
+                dr["Hourly Pay"] = ((ContractEmployee) emp).HourlyPay;
+                dr["Type"] = "Contract";
+            }
+            dt.Rows.Add(dr);
+        }
         return dt;
     }
 }
